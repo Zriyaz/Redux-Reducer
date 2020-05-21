@@ -6,6 +6,7 @@ class PostList extends React.Component{
     this.props.fetchPost()
   }
   render(){
+    console.log(this.props.posts)
     return(
       <div>
        <h1>User Post:</h1>
@@ -13,7 +14,11 @@ class PostList extends React.Component{
     )
   }
 }
+const mapStateToProps=(state)=>{
+  return {posts:state.posts}
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   {fetchPost}
   )(PostList )
